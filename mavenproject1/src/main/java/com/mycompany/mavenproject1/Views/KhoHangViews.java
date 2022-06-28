@@ -29,7 +29,7 @@ public class KhoHangViews extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         list = io.docSP(); //list = new ArrayList<> (); 
-        list_SuKien = new ArrayList<> ();
+        list_SuKien = io.docSK(list);
         model = (DefaultTableModel)jTable1.getModel();
 //        panelShow();
         TFTenTacGia.setVisible(true);
