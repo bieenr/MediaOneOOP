@@ -55,7 +55,6 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="BtnFull" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="BtnBack" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -134,6 +133,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="BtnBack" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="117" max="32767" attributes="0"/>
           </Group>
@@ -142,7 +142,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="BtnBack" min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="BtnBack" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
@@ -208,7 +208,7 @@
                   <Component id="BtnInsert" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnFull" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -323,7 +323,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="BtnInsert">
       <Properties>
-        <Property name="text" type="java.lang.String" value="INSERT"/>
+        <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInsertActionPerformed"/>
@@ -339,7 +339,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="BtnBack">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Back"/>
+        <Property name="text" type="java.lang.String" value="Tr&#x1edf; V&#x1ec1;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBackActionPerformed"/>

@@ -141,7 +141,7 @@ public class KhoHangViews extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        BtnInsert.setText("INSERT");
+        BtnInsert.setText("Thêm");
         BtnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnInsertActionPerformed(evt);
@@ -155,7 +155,7 @@ public class KhoHangViews extends javax.swing.JFrame {
             }
         });
 
-        BtnBack.setText("Back");
+        BtnBack.setText("Trở Về");
         BtnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnBackActionPerformed(evt);
@@ -250,7 +250,6 @@ public class KhoHangViews extends javax.swing.JFrame {
                         .addComponent(BtnClear)
                         .addGap(18, 18, 18)
                         .addComponent(BtnFull))
-                    .addComponent(BtnBack)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -308,13 +307,14 @@ public class KhoHangViews extends javax.swing.JFrame {
                                 .addGap(62, 62, 62)
                                 .addComponent(tieudekhohang)))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -368,7 +368,7 @@ public class KhoHangViews extends javax.swing.JFrame {
                     .addComponent(BtnClear)
                     .addComponent(BtnInsert)
                     .addComponent(BtnFull))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
