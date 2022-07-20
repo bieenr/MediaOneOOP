@@ -7,7 +7,9 @@ import KhoHang.Sach;
 import KhoHang.SanPham;
 import DoanhThu.SuKien;
 import DoanhThu.SuKienMotLan;
+import KhoHang.KhoHang;
 import java.awt.BorderLayout;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
@@ -21,16 +23,20 @@ public class KhoHangViews extends javax.swing.JFrame {
     int key = 0;
 
     IO io = new IO();
-
+    KhoHang khohang = new KhoHang();
     /**
      * Creates new form KhoHangViews
      */
     public KhoHangViews() {
+        listSanPham = khohang.getdanhsachsanpham();        
+        listSanPham_SuKien = khohang.getlistSanPham_SuKien();
+        
+        
         initComponents();
-        this.listSanPham = io.docSP();
+//        this.listSanPham = io.docSP();
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        listSanPham_SuKien = new ArrayList<>();
+//        listSanPham_SuKien = new ArrayList<>();
         model = (DefaultTableModel) jTable1.getModel();
         TFTenTacGia.setVisible(true);
         TFNhaXuatBan.setVisible(true);
@@ -92,7 +98,6 @@ public class KhoHangViews extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(778, 582));
 
         tieudekhohang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tieudekhohang.setText("THÔNG TIN SẢN PHẨM");
@@ -309,7 +314,7 @@ public class KhoHangViews extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,7 +373,7 @@ public class KhoHangViews extends javax.swing.JFrame {
                     .addComponent(BtnClear)
                     .addComponent(BtnInsert)
                     .addComponent(BtnFull))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -397,7 +402,7 @@ public class KhoHangViews extends javax.swing.JFrame {
         for (int i = 0; i < listSanPham.size(); i++) {
             if (listSanPham.get(i).getTensanpham().equals(TFTen.getText())) {
                 sp = listSanPham.get(i);
-                sp.setSoLuong(sp.getSoluong()+Integer.parseInt(TFSoLuongNhap.getText()));
+                sp.setSoLuong(sp.getSoluong() + Integer.parseInt(TFSoLuongNhap.getText()));
                 key = 1;
                 break;
             }
@@ -444,6 +449,8 @@ public class KhoHangViews extends javax.swing.JFrame {
 //        listSanPham_SuKien.add(sk);
         showResult(); /// Bảng hiện thêm hàng do hàm showResult này còn danh sách listSanPham vẫn chỉ có các sản phẩm ko cùng tên
         io.ghiSP(listSanPham);
+        listSanPham_SuKien.add(new SuKienMotLan(LocalDateTime.now(), "Nhập " + sp.getTensanpham(), "Mua", sp.getGianhap() * Integer.parseInt(TFSoLuongNhap.getText())));
+
         io.ghiSKMotLan(listSanPham_SuKien);
 
     }//GEN-LAST:event_BtnInsertActionPerformed
@@ -533,6 +540,7 @@ public class KhoHangViews extends javax.swing.JFrame {
 
     private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
         // TODO add your handling code here:
+        model.setRowCount(0);
     }//GEN-LAST:event_BtnClearActionPerformed
 
     private void BtnFullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFullActionPerformed

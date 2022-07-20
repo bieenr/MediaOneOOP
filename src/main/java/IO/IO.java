@@ -124,6 +124,7 @@ public class IO {
 
     public ArrayList<SuKienMotLan> docSKMotLan() {
         ArrayList<SuKienMotLan> dsSuKienMotLan = new ArrayList<>();
+
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsSuKienMotLan.csv"))) {
             sc.useDelimiter("\n");
             while (sc.hasNext()) {
@@ -147,18 +148,16 @@ public class IO {
     public void ghiSKDinhKy(ArrayList<SuKienDinhKy> dsSuKien) {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\dsSuKienDinhKy.csv"))) {
             for (SuKienDinhKy sk : dsSuKien) {
-                if (sk instanceof SuKienHangThang ){
-                    pw.print("0,"+ sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
-                            + "," + ((SuKienHangThang)sk).getNgay());
-                }
-                else if (sk instanceof SuKienTheoChuKy){
-                   pw.print("1,"+sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
-                            + "," + ((SuKienTheoChuKy)sk).getSoNgayMotChuKy()); 
-                }
-                else{
+                if (sk instanceof SuKienHangThang) {
+                    pw.print("0," + sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
+                            + "," + ((SuKienHangThang) sk).getNgay() + "\n");
+                } else if (sk instanceof SuKienTheoChuKy) {
+                    pw.print("1," + sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
+                            + "," + ((SuKienTheoChuKy) sk).getSoNgayMotChuKy() + "\n");
+                } else {
                     System.out.println("error");
                 }
-                
+
             }
         } catch (Exception e) {
             System.out.println("got an exception!");
@@ -177,18 +176,16 @@ public class IO {
                 String loaiSK = cacTruong[3];
                 int songay = Integer.parseInt(cacTruong[4]);
                 int loai = Integer.parseInt(cacTruong[0]);
-                if (loai == 0){
-                   SuKienHangThang skdk = new SuKienHangThang( tenSK, loaiSK,songay); 
-                   dsSuKien.add(skdk);
-                }
-                else if(loai == 1){
-                    SuKienTheoChuKy skdk = new SuKienTheoChuKy( tenSK, loaiSK, ngayTiepTheo,songay); 
+                if (loai == 0) {
+                    SuKienHangThang skdk = new SuKienHangThang(tenSK, loaiSK, songay);
                     dsSuKien.add(skdk);
-                }
-                else{
+                } else if (loai == 1) {
+                    SuKienTheoChuKy skdk = new SuKienTheoChuKy(tenSK, loaiSK, ngayTiepTheo, songay);
+                    dsSuKien.add(skdk);
+                } else {
                     System.out.print("error");
                 }
-                
+
             }
             sc.close();
         } catch (Exception e) {
@@ -202,13 +199,13 @@ public class IO {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\NV.DAT"))) {
             for (NhanVien nv : list) {
                 if (nv instanceof NhanVienCoDinh) {
-                    pw.println(((NhanVienCoDinh)nv).getLoaiNhanVien());
+                    pw.println(((NhanVienCoDinh) nv).getLoaiNhanVien());
                     pw.println(nv.getTenNhanVien());
                     pw.println(((NhanVienCoDinh) nv).getViTri());
                     pw.println(((NhanVienCoDinh) nv).getLuongCoBan());
                     pw.println(((NhanVienCoDinh) nv).getHeSoLuong());
                 } else if (nv instanceof NVPartTime) {
-                    pw.println(((NVPartTime)nv).getLoaiNhanVien());
+                    pw.println(((NVPartTime) nv).getLoaiNhanVien());
                     pw.println(nv.getTenNhanVien());
                     pw.println(((NVPartTime) nv).getThoiGianLamViec());
                     pw.println(((NVPartTime) nv).getLuongTheoGio());
@@ -248,12 +245,18 @@ public class IO {
 
     public ArrayList<ThongBao> docThongBao() {
         ArrayList<ThongBao> dsThongBao = new ArrayList<>();
+        
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsThongBao.csv"))) {
-            sc.useDelimiter("\n");
+
+            sc.useDelimiter("\r\n");
+            boolean a;
+//            System.out.print(sc.hasNext());
             while (sc.hasNext()) {
                 String nextLine = sc.next();
+//                System.out.print(nextLine);
                 String cacTruong[] = nextLine.split(",");
-                dsThongBao.add(new ThongBao(cacTruong[0], (cacTruong[1].substring(0, 4).equals("true"))));
+                if(cacTruong[1].toLowerCase().contains("true")){a=true;}else{a=false;}
+                dsThongBao.add(new ThongBao(cacTruong[0], a));
             }
             sc.close();
 

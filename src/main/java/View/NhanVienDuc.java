@@ -30,7 +30,7 @@ public class NhanVienDuc extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
 //        list = new ArrayList<> (); // list = io.docSP();
-        list_NhanVien = new ArrayList<>();
+//        list_NhanVien = new ArrayList<>();
         model = (DefaultTableModel) jTable1.getModel();
         list_NhanVien = io.docNV();
 //        System.out.println(list_NhanVien.size());
