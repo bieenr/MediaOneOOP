@@ -449,8 +449,12 @@ public class KhoHangViews extends javax.swing.JFrame {
 //        listSanPham_SuKien.add(sk);
         showResult(); /// Bảng hiện thêm hàng do hàm showResult này còn danh sách listSanPham vẫn chỉ có các sản phẩm ko cùng tên
         io.ghiSP(listSanPham);
+//<<<<<<< HEAD
         listSanPham_SuKien.add(new SuKienMotLan(LocalDateTime.now(), "Nhập " + sp.getTensanpham(), "Mua", sp.getGianhap() * Integer.parseInt(TFSoLuongNhap.getText())));
 
+//=======
+        listSanPham_SuKien.add(new SuKienMotLan(LocalDateTime.now(), "Nhập " + sp.getTensanpham(), "Mua", sp.getGianhap() * sp.getSoluong()));
+//>>>>>>> 54ece6ad40efb32609cb22d70a07da9dd75cef56
         io.ghiSKMotLan(listSanPham_SuKien);
 
     }//GEN-LAST:event_BtnInsertActionPerformed
