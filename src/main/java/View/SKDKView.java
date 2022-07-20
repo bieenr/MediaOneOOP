@@ -7,9 +7,7 @@ package View;
 import DoanhThu.QuanLySuKien;
 import DoanhThu.SuKienDinhKy;
 import DoanhThu.SuKienHangThang;
-import DoanhThu.SuKienMotLan;
 import DoanhThu.SuKienTheoChuKy;
-import IO.IO;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -31,24 +29,20 @@ public class SKDKView extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
         qlsk = new QuanLySuKien();
-//        System.out.println("1");
+        
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
-//        System.out.println("1");
         for (int i = 0; i < qlsk.getDanhSachSuKienDinhKy().size(); i++) {
             SuKienDinhKy sk = qlsk.getDanhSachSuKienDinhKy().get(i);
-//            System.out.println("1");
             if (sk instanceof SuKienHangThang) {
-                System.out.println("1");
                 SuKienHangThang skht = (SuKienHangThang) sk;
-//                System.out.println("1");
                 model.addRow(new Object[]{
-                    skht.getTenSuKien(), skht.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), skht.getLoaiSuKien(), "", skht.getNgay()
+                    skht.getTenSuKien(), sk.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), skht.getLoaiSuKien(), "", skht.getNgay()
                 });
             } else {
                 SuKienTheoChuKy sktck = (SuKienTheoChuKy) sk;
                 model.addRow(new Object[]{
-                    sktck.getTenSuKien(), sktck.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), sktck.getLoaiSuKien(), sktck.getSoNgayMotChuKy(), ""
+                    sktck.getTenSuKien(), sk.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), sktck.getLoaiSuKien(), sktck.getSoNgayMotChuKy(), ""
                 });
             }
         }

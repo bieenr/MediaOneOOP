@@ -18,15 +18,15 @@ public class SuKienHangThang extends SuKienDinhKy {
         super(LocalDateTime.now(), tenSK, loaiSK);
         LocalDateTime homnay = LocalDateTime.now();
         if (ngay > homnay.getDayOfMonth()) {
-            this.ngayTiepTheo.plusDays(ngay - homnay.getDayOfMonth());
+            this.ngayTiepTheo = this.ngayTiepTheo.plusDays(ngay - homnay.getDayOfMonth());
         } else {
-            this.ngayTiepTheo.plusMonths(1);
-            this.ngayTiepTheo.minusDays(homnay.getDayOfMonth() - ngay);
+            this.ngayTiepTheo = this.ngayTiepTheo.plusMonths(1);
+            this.ngayTiepTheo = this.ngayTiepTheo.minusDays(homnay.getDayOfMonth() - ngay);
         }
         this.ngay = ngay;
     }
-    
-    public int getNgay(){
+
+    public int getNgay() {
         return this.ngay;
     }
 }

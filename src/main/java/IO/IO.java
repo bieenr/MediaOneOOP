@@ -115,7 +115,7 @@ public class IO {
     public void ghiSKMotLan(ArrayList<SuKienMotLan> dsSuKien) {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\dsSuKienMotLan.csv"))) {
             for (SuKienMotLan sk : dsSuKien) {
-                pw.print(sk.getDate().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien() + "," + sk.getGiatri() + "\n");
+                pw.print(sk.getDate().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien() + "," + sk.getGiatri() + "\r\n");
             }
         } catch (Exception e) {
             System.out.println("got an exception!");
@@ -125,7 +125,7 @@ public class IO {
     public ArrayList<SuKienMotLan> docSKMotLan() {
         ArrayList<SuKienMotLan> dsSuKienMotLan = new ArrayList<>();
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsSuKienMotLan.csv"))) {
-            sc.useDelimiter("\n");
+            sc.useDelimiter("\r\n");
             while (sc.hasNext()) {
                 String nextLine = sc.next();
                 String cacTruong[] = nextLine.split(",");
@@ -149,10 +149,10 @@ public class IO {
             for (SuKienDinhKy sk : dsSuKien) {
                 if (sk instanceof SuKienHangThang) {
                     pw.print("0," + sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
-                            + "," + ((SuKienHangThang) sk).getNgay() + "\n");
+                            + "," + ((SuKienHangThang) sk).getNgay() + "\r\n");
                 } else if (sk instanceof SuKienTheoChuKy) {
                     pw.print("1," + sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
-                            + "," + ((SuKienTheoChuKy) sk).getSoNgayMotChuKy() + "\n");
+                            + "," + ((SuKienTheoChuKy) sk).getSoNgayMotChuKy() + "\r\n");
                 } else {
                     System.out.println("error");
                 }
@@ -166,7 +166,7 @@ public class IO {
     public ArrayList<SuKienDinhKy> docSKDinhKy() {
         ArrayList<SuKienDinhKy> dsSuKien = new ArrayList<>();
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsSuKienDinhKy.csv"))) {
-            sc.useDelimiter("\n");
+            sc.useDelimiter("\r\n");
             while (sc.hasNext()) {
                 String nextLine = sc.next();
                 String cacTruong[] = nextLine.split(",");
@@ -245,7 +245,7 @@ public class IO {
     public ArrayList<ThongBao> docThongBao() {
         ArrayList<ThongBao> dsThongBao = new ArrayList<>();
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsThongBao.csv"))) {
-            sc.useDelimiter("\n");
+            sc.useDelimiter("\r\n");
             while (sc.hasNext()) {
                 String nextLine = sc.next();
                 String cacTruong[] = nextLine.split(",");
@@ -262,7 +262,7 @@ public class IO {
     public void ghiThongBao(ArrayList<ThongBao> dsThongBao) {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\dsThongBao.csv"))) {
             for (ThongBao tb : dsThongBao) {
-                pw.print(tb.getMessage() + "," + tb.getRead() + "\n");
+                pw.print(tb.getMessage() + "," + tb.getRead() + "\r\n");
             }
         } catch (Exception e) {
             System.out.println("got an exception!");

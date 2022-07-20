@@ -21,13 +21,6 @@ public class SuKienDinhKy extends SuKien {
         this.ngayTiepTheo = ngay;
     }
 
-    public void themThongBao() {
-        IO IO = new IO();
-        ArrayList<ThongBao> dsThongBao = IO.docThongBao();
-        dsThongBao.add(new ThongBao(this.getTenSuKien(), false));
-        IO.ghiThongBao(dsThongBao);
-    }
-
     public LocalDateTime getNgayTiepTheo() {
         return this.ngayTiepTheo;
     }
