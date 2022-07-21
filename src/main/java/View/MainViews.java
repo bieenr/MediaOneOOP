@@ -4,7 +4,7 @@
  */
 package View;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -84,7 +84,7 @@ public class MainViews extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Bell-icon.jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp pavilion\\Documents\\LEARNJAVA\\MediaOneOOP\\src\\main\\ICON\\Icon\\Bell-icon.png")); // NOI18N
         jButton1.setToolTipText("");
         jButton1.setMaximumSize(new java.awt.Dimension(70, 70));
         jButton1.setMinimumSize(new java.awt.Dimension(70, 70));
