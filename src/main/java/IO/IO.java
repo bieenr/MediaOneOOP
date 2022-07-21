@@ -115,8 +115,7 @@ public class IO {
     public void ghiSKMotLan(ArrayList<SuKienMotLan> dsSuKien) {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\dsSuKienMotLan.csv"))) {
             for (SuKienMotLan sk : dsSuKien) {
-//                pw.print(sk.getDate().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien() + "," + sk.getGiatri() + "\n");
-                pw.print(sk.getDate().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien() + "," + sk.getGiatri() + "\r\n");
+                pw.print(sk.getDate().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien() + "," + sk.getGiatri() + "\n");
             }
         } catch (Exception e) {
             System.out.println("got an exception!");
@@ -127,8 +126,7 @@ public class IO {
         ArrayList<SuKienMotLan> dsSuKienMotLan = new ArrayList<>();
 
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsSuKienMotLan.csv"))) {
-//            sc.useDelimiter("\n");
-            sc.useDelimiter("\r\n");
+            sc.useDelimiter("\n");
             while (sc.hasNext()) {
                 String nextLine = sc.next();
                 String cacTruong[] = nextLine.split(",");
@@ -152,12 +150,10 @@ public class IO {
             for (SuKienDinhKy sk : dsSuKien) {
                 if (sk instanceof SuKienHangThang) {
                     pw.print("0," + sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
-//                            + "," + ((SuKienHangThang) sk).getNgay() + "\n");
-                            + "," + ((SuKienHangThang) sk).getNgay() + "\r\n");
+                            + "," + ((SuKienHangThang) sk).getNgay() + "\n");
                 } else if (sk instanceof SuKienTheoChuKy) {
                     pw.print("1," + sk.getNgayTiepTheo().toString() + "," + sk.getTenSuKien() + "," + sk.getLoaiSuKien()
-//                            + "," + ((SuKienTheoChuKy) sk).getSoNgayMotChuKy() + "\n");
-                            + "," + ((SuKienTheoChuKy) sk).getSoNgayMotChuKy() + "\r\n");
+                            + "," + ((SuKienTheoChuKy) sk).getSoNgayMotChuKy() + "\n");
                 } else {
                     System.out.println("error");
                 }
@@ -171,8 +167,7 @@ public class IO {
     public ArrayList<SuKienDinhKy> docSKDinhKy() {
         ArrayList<SuKienDinhKy> dsSuKien = new ArrayList<>();
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\dsSuKienDinhKy.csv"))) {
-//            sc.useDelimiter("\n");
-            sc.useDelimiter("\r\n");
+            sc.useDelimiter("\n");
             while (sc.hasNext()) {
                 String nextLine = sc.next();
                 String cacTruong[] = nextLine.split(",");
@@ -226,15 +221,15 @@ public class IO {
         ArrayList<NhanVien> list = new ArrayList<>();
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\NV.DAT"))) {
             while (sc.hasNext()) {
-                int number = Integer.parseInt(sc.nextLine());
-                if (number == 0) {
+                String number =sc.nextLine();
+                if (number.equals("Full-time")) {
                     NhanVienCoDinh nv = new NhanVienCoDinh();
                     nv.setTenNhanVien(sc.nextLine());
                     nv.setViTri(sc.nextLine());
                     nv.setLuongCoBan(Double.parseDouble(sc.nextLine()));
                     nv.setHeSoLuong(Double.parseDouble(sc.nextLine()));
                     list.add(nv);
-                } else if (number == 1) {
+                } else if (number.equals("Part-time")) {
                     NVPartTime nv = new NVPartTime();
                     nv.setTenNhanVien(sc.nextLine());
                     nv.setThoiGianLamViec(Double.parseDouble(sc.nextLine()));
@@ -274,8 +269,7 @@ public class IO {
     public void ghiThongBao(ArrayList<ThongBao> dsThongBao) {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\dsThongBao.csv"))) {
             for (ThongBao tb : dsThongBao) {
-//                pw.print(tb.getMessage() + "," + tb.getRead() + "\n");
-                pw.print(tb.getMessage() + "," + tb.getRead() + "\r\n");
+                pw.print(tb.getMessage() + "," + tb.getRead() + "\n");
             }
         } catch (Exception e) {
             System.out.println("got an exception!");

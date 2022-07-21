@@ -35,14 +35,9 @@ public class QuanLySuKien {
     }
 
     private boolean isSameDay(LocalDateTime a, LocalDateTime b) {
-//        LocalDateTime c = LocalDateTime.of(a.getDayOfYear(), a.getMonthValue(), a.getDayOfMonth(), 0, 0, 0);
-//        LocalDateTime d = LocalDateTime.of(a.getDayOfYear(), a.getMonthValue(), a.getDayOfMonth(), 23, 59, 59);
-//        return b.isAfter(c) && b.isBefore(d);
-        LocalDateTime c = LocalDateTime.of(a.getYear(), a.getMonthValue(), a.getDayOfMonth(), 0, 0, 0);
-        c = c.minusSeconds(1);
-        LocalDateTime d = LocalDateTime.of(a.getYear(), a.getMonthValue(), a.getDayOfMonth(), 23, 59, 59);
-        d = d.plusSeconds(1);
-        return (b.isAfter(c) && b.isBefore(d));
+        LocalDateTime c = LocalDateTime.of(a.getDayOfYear(), a.getMonthValue(), a.getDayOfMonth(), 0, 0, 0);
+        LocalDateTime d = LocalDateTime.of(a.getDayOfYear(), a.getMonthValue(), a.getDayOfMonth(), 23, 59, 59);
+        return b.isAfter(c) && b.isBefore(d);
     }
 
     public void checkSKDK() {
@@ -53,12 +48,10 @@ public class QuanLySuKien {
             if (isSameDay(tdht, skdk.getNgayTiepTheo())) {
                 tb.add(new ThongBao(skdk.getTenSuKien(), false));
                 if (skdk instanceof SuKienHangThang) {
-//                    skdk.setNgayTiepTheo(skdk.getNgayTiepTheo().plusMonths(1));
-                    skdk.setNgayTiepTheo(tdht.plusMonths(1));
+                    skdk.setNgayTiepTheo(skdk.getNgayTiepTheo().plusMonths(1));
                 } else if (skdk instanceof SuKienTheoChuKy) {
                     SuKienTheoChuKy skdk1 = (SuKienTheoChuKy) skdk;
-//                    skdk.setNgayTiepTheo(skdk.getNgayTiepTheo().plusDays(skdk1.getSoNgayMotChuKy()));
-                    skdk.setNgayTiepTheo(tdht.plusDays(skdk1.getSoNgayMotChuKy()));
+                    skdk.setNgayTiepTheo(skdk.getNgayTiepTheo().plusDays(skdk1.getSoNgayMotChuKy()));
                 }
             }
         }

@@ -8,8 +8,9 @@ public class QuanLyNhanVien {
     private final int MAX_PARTTIME = 15;
     private final int MAX_CODINH = 15;
     ArrayList <NhanVien> danhsachNhanViens;
+    IO IO;
     public QuanLyNhanVien(){
-       IO IO = new IO();
+       IO = new IO();
        this.danhsachNhanViens = IO.docNV();
     }
     public int getSoNhanVienPartTime() {
@@ -23,11 +24,29 @@ public class QuanLyNhanVien {
     }
     public int getSoNhanVienCoDinh() {
         int cout = 0;
+        for(NhanVien obj : danhsachNhanViens){
+           if(obj instanceof NhanVienCoDinh) cout++;
+        }
         return cout;
     }
     public boolean themNhanVien(NhanVien nv){
-         danhsachNhanViens.add(nv);
-         return true;
+         if(nv instanceof NVPartTime){
+             if(this.getSoNhanVienPartTime() < this.MAX_PARTTIME){
+                danhsachNhanViens.add(nv);
+                IO.ghiNV(danhsachNhanViens);
+                return true;
+             }
+             return false;
+         }
+          if(nv instanceof NhanVienCoDinh){
+             if(this.getSoNhanVienCoDinh()< this.MAX_CODINH){
+                danhsachNhanViens.add(nv);
+                IO.ghiNV(danhsachNhanViens);
+                return true;
+             }
+             return false;
+         }
+        return false;
     }
     public double tongLuong() {
         double sum = 0;
@@ -35,5 +54,38 @@ public class QuanLyNhanVien {
             sum += obj.tinhLuong();
         }
         return sum;
+    }
+    public boolean changeTG(String tenNhanVien, double time){
+        for(NhanVien obj : danhsachNhanViens){
+            if(obj.getTenNhanVien().equals(tenNhanVien)){
+                if(obj instanceof NVPartTime){
+               NVPartTime nvpt = (NVPartTime) obj;
+               nvpt.setThoiGianLamViec(time);
+               IO.ghiNV(danhsachNhanViens);
+               return true;
+               }
+            }
+        }
+        return false;
+    }
+        public boolean traLuong(){
+        for(NhanVien obj : danhsachNhanViens){
+               if(obj instanceof NVPartTime){
+               NVPartTime nvpt = (NVPartTime) obj;
+               nvpt.setThoiGianLamViec(0.0);
+               }
+        }
+               IO.ghiNV(danhsachNhanViens);
+               return true;
+    }
+    public boolean xoaNhanVien(String name){
+       for(NhanVien obj : danhsachNhanViens){
+         if(obj.getTenNhanVien().equals(name)){
+            danhsachNhanViens.remove(obj);
+            IO.ghiNV(danhsachNhanViens);
+            return true;
+         }
+       }
+       return false;
     }
 }

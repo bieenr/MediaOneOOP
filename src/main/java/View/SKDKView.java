@@ -43,14 +43,12 @@ public class SKDKView extends javax.swing.JFrame {
                 SuKienHangThang skht = (SuKienHangThang) sk;
 //                System.out.println("1");
                 model.addRow(new Object[]{
-                    skht.getTenSuKien(), sk.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), skht.getLoaiSuKien(), "", skht.getNgay()
-//                    skht.getTenSuKien(), skht.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), skht.getLoaiSuKien(), "", skht.getNgay()
+                    skht.getTenSuKien(), skht.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), skht.getLoaiSuKien(), "", skht.getNgay()
                 });
             } else {
                 SuKienTheoChuKy sktck = (SuKienTheoChuKy) sk;
                 model.addRow(new Object[]{
-                    sktck.getTenSuKien(), sk.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), sktck.getLoaiSuKien(), sktck.getSoNgayMotChuKy(), ""
-//                    sktck.getTenSuKien(), sktck.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), sktck.getLoaiSuKien(), sktck.getSoNgayMotChuKy(), ""
+                    sktck.getTenSuKien(), sktck.getNgayTiepTheo().format(DateTimeFormatter.ISO_DATE), sktck.getLoaiSuKien(), sktck.getSoNgayMotChuKy(), ""
                 });
             }
         }

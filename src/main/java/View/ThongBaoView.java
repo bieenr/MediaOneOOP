@@ -4,7 +4,7 @@
  */
 package View;
 
-import IO.IO;
+
 import ThongBao.QuanLyThongBao;
 import ThongBao.ThongBao;
 import java.util.ArrayList;
@@ -21,8 +21,9 @@ public class ThongBaoView extends javax.swing.JFrame {
     /**
      * Creates new form ThongBaoView
      */
-    private static ArrayList<ThongBao> listThongBao;
+    private ArrayList<ThongBao> listThongBao;
     DefaultTableModel model;
+  
     public ThongBaoView() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,8 +31,7 @@ public class ThongBaoView extends javax.swing.JFrame {
         listThongBao = ql.getDanhSachThongBao();
         model = (DefaultTableModel) jTable1.getModel();
         this.showResult();
-        IO fileIO = new IO();
-        fileIO.ghiThongBao(listThongBao);
+        
     }
 
     /**
@@ -124,11 +124,9 @@ public class ThongBaoView extends javax.swing.JFrame {
 		
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
         JFrame MainViews = new MainViews();
         this.setVisible(false);
         MainViews.setVisible(true);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -146,10 +144,7 @@ public class ThongBaoView extends javax.swing.JFrame {
             });}
             else {model.addRow(new Object[]{
                     tb.getMessage(),"<CHƯA ĐỌC>" 
-            });
-            tb.setRead(true);
-            listThongBao.set(i,tb);
-            }
+            });}
         }
     }
 
