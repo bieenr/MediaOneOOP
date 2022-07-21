@@ -10,23 +10,26 @@ import java.time.LocalDateTime;
  *
  * @author XPS
  */
-public class SuKienHangThang extends SuKienDinhKy implements ChinhNgay {
+public class SuKienHangThang extends SuKienDinhKy {
 
     private int ngay;
 
     public SuKienHangThang(String tenSK, String loaiSK, int ngay) {
-        super(tenSK, loaiSK, LocalDateTime.now());
+        super(LocalDateTime.now(), tenSK, loaiSK);
         LocalDateTime homnay = LocalDateTime.now();
         if (ngay > homnay.getDayOfMonth()) {
-            this.ngayTiepTheo.plusDays(ngay - homnay.getDayOfMonth());
+//            this.ngayTiepTheo.plusDays(ngay - homnay.getDayOfMonth());
+            this.ngayTiepTheo = this.ngayTiepTheo.plusDays(ngay - homnay.getDayOfMonth());
         } else {
-            this.ngayTiepTheo.plusMonths(1);
-            this.ngayTiepTheo.minusDays(homnay.getDayOfMonth() - ngay);
+//            this.ngayTiepTheo.plusMonths(1);
+//            this.ngayTiepTheo.minusDays(homnay.getDayOfMonth() - ngay);
+            this.ngayTiepTheo = this.ngayTiepTheo.plusMonths(1);
+            this.ngayTiepTheo = this.ngayTiepTheo.minusDays(homnay.getDayOfMonth() - ngay);
         }
         this.ngay = ngay;
     }
-
-    public void chinhNgay() {
-        this.ngayTiepTheo = this.ngayTiepTheo.plusMonths(1);
+    
+    public int getNgay(){
+        return this.ngay;
     }
 }

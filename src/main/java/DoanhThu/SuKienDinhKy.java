@@ -8,8 +8,6 @@ import IO.IO;
 import ThongBao.ThongBao;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
-
 /**
  *
  * @author XPS
@@ -18,16 +16,23 @@ public class SuKienDinhKy extends SuKien {
 
     protected LocalDateTime ngayTiepTheo;
 
-    public SuKienDinhKy(String tenSK, String loaiSK, LocalDateTime ngay) {
+    public SuKienDinhKy(LocalDateTime ngay, String tenSK, String loaiSK) {
         super(tenSK, loaiSK);
         this.ngayTiepTheo = ngay;
     }
 
-    public void themThongBao() {
-        IO IO = new IO();
-        ArrayList<ThongBao> dsThongBao = IO.docThongBao();
-        dsThongBao.add(new ThongBao(this.getTenSuKien(), false));
-        IO.ghiThongBao(dsThongBao);
+//    public void themThongBao() {
+//        IO IO = new IO();
+//        ArrayList<ThongBao> dsThongBao = IO.docThongBao();
+//        dsThongBao.add(new ThongBao(this.getTenSuKien(), false));
+//        IO.ghiThongBao(dsThongBao);
+//    }
+
+    public LocalDateTime getNgayTiepTheo() {
+        return this.ngayTiepTheo;
     }
 
+    public void setNgayTiepTheo(LocalDateTime t) {
+        this.ngayTiepTheo = t;
+    }
 }

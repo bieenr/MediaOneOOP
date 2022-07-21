@@ -5,6 +5,7 @@
 package View;
 
 import Exception.ChuaNhapDuThongTin;
+import Exception.GiaTriKhongHopLe;
 import Exception.KhongDuSoSanPhamYeuCau;
 import Exception.SanPhamKhongCoTrongHoaDon;
 import Exception.SanPhamKhongCoTrongKho;
@@ -120,8 +121,13 @@ public class ThanhToanView extends javax.swing.JFrame {
         });
 
         BtnXoaSPHD.setText("Xóa");
+        BtnXoaSPHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnXoaSPHDActionPerformed(evt);
+            }
+        });
 
-        BtnBack.setText("Back");
+        BtnBack.setText("Trở Về");
         BtnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnBackActionPerformed(evt);
@@ -142,48 +148,48 @@ public class ThanhToanView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(lbtenSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(BtnThemSPHD)
+                        .addGap(43, 43, 43)
+                        .addComponent(BTNBotSPHD)
+                        .addGap(38, 38, 38)
+                        .addComponent(BtnIn)
+                        .addGap(35, 35, 35)
+                        .addComponent(BtnXoaSPHD))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbtenSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TFtenSanPhamHD, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFtenSanPhamHD, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(lbsoluong, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFsoluongHD, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(BtnThemSPHD)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNBotSPHD)
-                        .addGap(60, 60, 60)
-                        .addComponent(BtnIn)
-                        .addGap(54, 54, 54)
-                        .addComponent(BtnXoaSPHD)))
-                .addGap(88, 88, 88))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(BtnBack)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(TFsoluongHD, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addComponent(BtnBack)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TFtenSanPhamHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TFsoluongHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbtenSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbsoluong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnThemSPHD)
                     .addComponent(BTNBotSPHD, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnXoaSPHD)
-                    .addComponent(BtnIn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                    .addComponent(BtnIn)
+                    .addComponent(BtnXoaSPHD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 80, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -221,11 +227,17 @@ public class ThanhToanView extends javax.swing.JFrame {
                     "Trong kho không đủ số sản phẩm yêu cầu!",
                     "",
                     JOptionPane.ERROR_MESSAGE);
+        } catch (GiaTriKhongHopLe e) {
+            JFrame frame = new JFrame("");
+            JOptionPane.showMessageDialog(frame,
+                    "Giá trị nhập vào không hợp lệ!",
+                    "",
+                    JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             System.out.println(e.getClass());
             JFrame frame = new JFrame("");
             JOptionPane.showMessageDialog(frame,
-                    "Error!",
+                    "Xảy ra lỗi!",
                     "",
                     JOptionPane.ERROR_MESSAGE);
         } finally {
@@ -236,15 +248,15 @@ public class ThanhToanView extends javax.swing.JFrame {
     private void BTNBotSPHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNBotSPHDActionPerformed
         // TODO add your handling code here:
         try {
-            String spThem;
-            int soLuongSpThem;
+            String spBot;
+            int soLuongSpBot;
             try {
-                spThem = TFtenSanPhamHD.getText();
-                soLuongSpThem = Integer.parseInt(TFsoluongHD.getText());
+                spBot = TFtenSanPhamHD.getText();
+                soLuongSpBot = Integer.parseInt(TFsoluongHD.getText());
             } catch (Exception e) {
                 throw new ChuaNhapDuThongTin();
             }
-            this.TT.botSanPham(spThem, soLuongSpThem);
+            this.TT.botSanPham(spBot, soLuongSpBot);
         } catch (ChuaNhapDuThongTin e) {
             JFrame frame = new JFrame("");
             JOptionPane.showMessageDialog(frame,
@@ -264,11 +276,18 @@ public class ThanhToanView extends javax.swing.JFrame {
                     "Không đủ số sản phẩm yêu cầu!",
                     "",
                     JOptionPane.ERROR_MESSAGE);
+        } catch (GiaTriKhongHopLe e) {
+            JFrame frame = new JFrame("");
+            JOptionPane.showMessageDialog(frame,
+                    "Giá trị nhập vào không hợp lệ!",
+                    "",
+                    JOptionPane.ERROR_MESSAGE);
+
         } catch (Exception e) {
             System.out.println(e.getClass());
             JFrame frame = new JFrame("");
             JOptionPane.showMessageDialog(frame,
-                    "Error!",
+                    "Xảy ra lỗi!",
                     "",
                     JOptionPane.ERROR_MESSAGE);
         } finally {
@@ -285,39 +304,52 @@ public class ThanhToanView extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBackActionPerformed
 
     private void BtnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInActionPerformed
-//        // TODO add your handling code here:
-        // Them vao SK.DAT
-        // In ra man hinh cua so hoa don
+        // TODO add your handling code here:
+        this.TT.taoSuKien();
+
         JFrame HDView = new HoaDonView(this.TT.getHD());
         HDView.setVisible(true);
 
         this.setVisible(false);
         JFrame MainViews = new MainViews();
         MainViews.setVisible(true);
-
-//        for (int i = 0; i < HD.getDanhSachSanPham().size(); i++) {
-//            SanPham sp = null;
-//            for (int j = 0; j < this.list_kho.size(); j++) {
-//                if (HD.getDanhSachSanPham().get(i).equals(this.list_kho.get(j).getTensanpham())) {
-//                    sp = this.list_kho.get(j);
-//                    break;
-//                }
-//            }
-//            if (sp == null) {
-//                return;
-//            }
-//            if (HD.getDanhSachSoLuong().get(i) < sp.getSoluong()) {
-//                Date ngay = new Date();
-//                SuKien sk = new SuKien(sp, ngay, "ban", sp.getSoluong() - HD.getDanhSachSoLuong().get(i));
-//// can mang su kien vi khi dung lenh xoa thi ta se ko co su kien nay
-//                sk.isRealSK();
-//                list_SuKien.add(sk);
-//            }
-//
-//        }
-//        IO.ghiSP(this.list_kho);
-//        IO.ghiSK(list_SuKien);
     }//GEN-LAST:event_BtnInActionPerformed
+
+    private void BtnXoaSPHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnXoaSPHDActionPerformed
+        // TODO add your handling code here:
+        try {
+            String spXoa;
+            try {
+                spXoa = TFtenSanPhamHD.getText();
+            } catch (Exception e) {
+                throw new ChuaNhapDuThongTin();
+            }
+            this.TT.xoaSanPham(spXoa);
+        } catch (ChuaNhapDuThongTin e) {
+            JFrame frame = new JFrame("");
+            JOptionPane.showMessageDialog(frame,
+                    "Chưa nhập đủ thông tin!",
+                    "",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (SanPhamKhongCoTrongHoaDon e) {
+            JFrame frame = new JFrame("");
+            JOptionPane.showMessageDialog(frame,
+                    "Sản phẩm không có sẵn trong hóa đơn!",
+                    "",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            System.out.println(e.getClass());
+            JFrame frame = new JFrame("");
+            JOptionPane.showMessageDialog(frame,
+                    "Xảy ra lỗi!",
+                    "",
+                    JOptionPane.ERROR_MESSAGE);
+        } finally {
+            this.showResultHD();
+        }
+
+    }//GEN-LAST:event_BtnXoaSPHDActionPerformed
 
     private void showResultHD() {
         String text = "";
