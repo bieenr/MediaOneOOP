@@ -8,7 +8,7 @@ import IO.IO;
 import ThongBao.QuanLyThongBao;
 import ThongBao.ThongBao;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 ;
 
@@ -21,7 +21,7 @@ public class ThongBaoView extends javax.swing.JFrame {
     /**
      * Creates new form ThongBaoView
      */
-    private static ArrayList<ThongBao> listThongBao;
+    private ArrayList<ThongBao> listThongBao;
     DefaultTableModel model;
     public ThongBaoView() {
         initComponents();
@@ -30,8 +30,7 @@ public class ThongBaoView extends javax.swing.JFrame {
         listThongBao = ql.getDanhSachThongBao();
         model = (DefaultTableModel) jTable1.getModel();
         this.showResult();
-        IO fileIO = new IO();
-        fileIO.ghiThongBao(listThongBao);
+        
     }
 
     /**
@@ -48,6 +47,7 @@ public class ThongBaoView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,16 +88,54 @@ public class ThongBaoView extends javax.swing.JFrame {
                 {null, null},
                 {null, null},
                 {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
                 {null, null}
             },
             new String [] {
                 "NỘI DUNG", "TRẠNG THÁI "
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
         }
+
+        jButton2.setText("Cập nhật");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,6 +146,9 @@ public class ThongBaoView extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +156,8 @@ public class ThongBaoView extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
 
         pack();
@@ -130,6 +172,20 @@ public class ThongBaoView extends javax.swing.JFrame {
         MainViews.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         for (int i = 0; i < listThongBao.size(); i++) {
+            ThongBao tb = listThongBao.get(i);
+            if(!tb.getRead()){
+                tb.setRead(true);
+                listThongBao.set(i,tb);
+            }
+         }
+        IO fileIO = new IO();
+        fileIO.ghiThongBao(listThongBao);
+        this.showResult();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,14 +203,13 @@ public class ThongBaoView extends javax.swing.JFrame {
             else {model.addRow(new Object[]{
                     tb.getMessage(),"<CHƯA ĐỌC>" 
             });
-            tb.setRead(true);
-            listThongBao.set(i,tb);
             }
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
