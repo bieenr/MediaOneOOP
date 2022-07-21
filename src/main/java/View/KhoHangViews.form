@@ -45,12 +45,14 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="BtnInsert" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BtnClear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="BtnClear" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="BtnFull" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Btntim" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -131,6 +133,10 @@
                       <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
                   </Group>
                   <Component id="BtnBack" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="Btntimtheoloai" min="-2" pref="111" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -199,13 +205,16 @@
                   </Group>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BtnClear" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BtnInsert" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnFull" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btntim" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnInsert" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="Btntimtheoloai" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="10" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -396,6 +405,8 @@
         <Property name="text" type="java.lang.String" value="T&#xe1;c gi&#x1ea3;"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTenTacGiaMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTenTacGiaMouseExited"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TFTenTacGiaActionPerformed"/>
       </Events>
     </Component>
@@ -403,22 +414,36 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nh&#xe0; xu&#x1ea5;t b&#x1ea3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNhaXuatBanMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNhaXuatBanMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFTenCaSi">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ca s&#x129;"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTenCaSiMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTenCaSiMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFTheLoaiDN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#x1ec3; Lo&#x1ea1;i"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTheLoaiDNMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTheLoaiDNMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFDaoDien">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x110;&#x1ea1;o Di&#x1ec5;n"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFDaoDienMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFDaoDienMouseExited"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TFDaoDienActionPerformed"/>
       </Events>
     </Component>
@@ -426,31 +451,55 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Di&#x1ec5;n Vi&#xea;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFDienVienMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFDienVienMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFTheLoaiSach">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#x1ec3; Lo&#x1ea1;i"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTheLoaiSachMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTheLoaiSachMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFNamPhatHanhDN">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#x103;m ph&#xe1;t h&#xe0;nh"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNamPhatHanhDNMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNamPhatHanhDNMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFTheLoaiDP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#x1ec3; lo&#x1ea1;i"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTheLoaiDPMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFTheLoaiDPMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFNamPhatHanhSach">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#x103;m ph&#xe1;t h&#xe0;nh"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNamPhatHanhSachMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNamPhatHanhSachMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFNamSanXuatDP">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#x103;m s&#x1ea3;n xu&#x1ea5;t"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNamSanXuatDPMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TFNamSanXuatDPMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BtnFull">
       <Properties>
@@ -458,6 +507,26 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnFullActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btntim">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xec;m"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtntimMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtntimMouseExited"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtntimActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btntimtheoloai">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xec;m theo lo&#x1ea1;i"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtntimtheoloaiMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtntimtheoloaiMouseExited"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtntimtheoloaiActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

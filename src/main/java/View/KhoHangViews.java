@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class KhoHangViews extends javax.swing.JFrame {
@@ -29,8 +30,8 @@ public class KhoHangViews extends javax.swing.JFrame {
      */
     public KhoHangViews() {
         listSanPham = khohang.getdanhsachsanpham();        
-        listSanPham_SuKien = khohang.getlistSanPham_SuKien();
-        
+//        listSanPham_SuKien = khohang.getlistSanPham_SuKien();
+        listSanPham_SuKien = io.docSKMotLan();
         
         initComponents();
 //        this.listSanPham = io.docSP();
@@ -94,6 +95,8 @@ public class KhoHangViews extends javax.swing.JFrame {
         TFNamPhatHanhSach = new javax.swing.JTextField();
         TFNamSanXuatDP = new javax.swing.JTextField();
         BtnFull = new javax.swing.JButton();
+        Btntim = new javax.swing.JButton();
+        Btntimtheoloai = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -204,6 +207,14 @@ public class KhoHangViews extends javax.swing.JFrame {
         );
 
         TFTenTacGia.setText("Tác giả");
+        TFTenTacGia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFTenTacGiaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFTenTacGiaMouseExited(evt);
+            }
+        });
         TFTenTacGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TFTenTacGiaActionPerformed(evt);
@@ -211,12 +222,44 @@ public class KhoHangViews extends javax.swing.JFrame {
         });
 
         TFNhaXuatBan.setText("Nhà xuất bản");
+        TFNhaXuatBan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFNhaXuatBanMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFNhaXuatBanMouseExited(evt);
+            }
+        });
 
         TFTenCaSi.setText("Ca sĩ");
+        TFTenCaSi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFTenCaSiMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFTenCaSiMouseExited(evt);
+            }
+        });
 
         TFTheLoaiDN.setText("Thể Loại");
+        TFTheLoaiDN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFTheLoaiDNMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFTheLoaiDNMouseExited(evt);
+            }
+        });
 
         TFDaoDien.setText("Đạo Diễn");
+        TFDaoDien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFDaoDienMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFDaoDienMouseExited(evt);
+            }
+        });
         TFDaoDien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TFDaoDienActionPerformed(evt);
@@ -224,21 +267,99 @@ public class KhoHangViews extends javax.swing.JFrame {
         });
 
         TFDienVien.setText("Diễn Viên");
+        TFDienVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFDienVienMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFDienVienMouseExited(evt);
+            }
+        });
 
         TFTheLoaiSach.setText("Thể Loại");
+        TFTheLoaiSach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFTheLoaiSachMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFTheLoaiSachMouseExited(evt);
+            }
+        });
 
         TFNamPhatHanhDN.setText("Năm phát hành");
+        TFNamPhatHanhDN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFNamPhatHanhDNMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFNamPhatHanhDNMouseExited(evt);
+            }
+        });
 
         TFTheLoaiDP.setText("Thể loại");
+        TFTheLoaiDP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFTheLoaiDPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFTheLoaiDPMouseExited(evt);
+            }
+        });
 
         TFNamPhatHanhSach.setText("Năm phát hành");
+        TFNamPhatHanhSach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFNamPhatHanhSachMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFNamPhatHanhSachMouseExited(evt);
+            }
+        });
 
         TFNamSanXuatDP.setText("Năm sản xuất");
+        TFNamSanXuatDP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TFNamSanXuatDPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TFNamSanXuatDPMouseExited(evt);
+            }
+        });
 
         BtnFull.setText("Full");
         BtnFull.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnFullActionPerformed(evt);
+            }
+        });
+
+        Btntim.setText("Tìm");
+        Btntim.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtntimMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtntimMouseExited(evt);
+            }
+        });
+        Btntim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtntimActionPerformed(evt);
+            }
+        });
+
+        Btntimtheoloai.setText("Tìm theo loại");
+        Btntimtheoloai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtntimtheoloaiMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtntimtheoloaiMouseExited(evt);
+            }
+        });
+        Btntimtheoloai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtntimtheoloaiActionPerformed(evt);
             }
         });
 
@@ -249,12 +370,14 @@ public class KhoHangViews extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(21, 21, 21)
                         .addComponent(BtnInsert)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnClear)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnFull))
+                        .addComponent(BtnClear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnFull)
+                        .addGap(18, 18, 18)
+                        .addComponent(Btntim))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -313,7 +436,10 @@ public class KhoHangViews extends javax.swing.JFrame {
                                 .addComponent(tieudekhohang)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(Btntimtheoloai, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -368,12 +494,15 @@ public class KhoHangViews extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addComponent(PanelLoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnClear)
-                    .addComponent(BtnInsert)
-                    .addComponent(BtnFull))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(BtnFull)
+                    .addComponent(Btntim)
+                    .addComponent(BtnInsert))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btntimtheoloai)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -453,12 +582,60 @@ public class KhoHangViews extends javax.swing.JFrame {
         listSanPham_SuKien.add(new SuKienMotLan(LocalDateTime.now(), "Nhập " + sp.getTensanpham(), "Mua", sp.getGianhap() * Integer.parseInt(TFSoLuongNhap.getText())));
 
 //=======
-        listSanPham_SuKien.add(new SuKienMotLan(LocalDateTime.now(), "Nhập " + sp.getTensanpham(), "Mua", sp.getGianhap() * sp.getSoluong()));
 //>>>>>>> 54ece6ad40efb32609cb22d70a07da9dd75cef56
         io.ghiSKMotLan(listSanPham_SuKien);
 
     }//GEN-LAST:event_BtnInsertActionPerformed
+    private void setstatusBTNGR(){
+        RBtnDiaNhac.setVisible(true);
+        RBtnDiaPhim.setVisible(true);
+        RBtnSach.setVisible(true);
+        if (RBtnSach.isSelected()) {
+                TFTenTacGia.setVisible(true);
+            TFNhaXuatBan.setVisible(true);
+            TFTheLoaiSach.setVisible(true);
+            TFNamPhatHanhSach.setVisible(true);
 
+            TFTenCaSi.setVisible(false);
+            TFTheLoaiDN.setVisible(false);
+            TFNamPhatHanhDN.setVisible(false);
+
+            TFDaoDien.setVisible(false);
+            TFDienVien.setVisible(false);
+            TFTheLoaiDP.setVisible(false);
+            TFNamSanXuatDP.setVisible(false);
+        }
+        else if (RBtnDiaNhac.isSelected()) {
+            TFTenTacGia.setVisible(false);
+            TFNhaXuatBan.setVisible(false);
+            TFTheLoaiSach.setVisible(false);
+            TFNamPhatHanhSach.setVisible(false);
+
+            TFTenCaSi.setVisible(true);
+            TFTheLoaiDN.setVisible(true);
+            TFNamPhatHanhDN.setVisible(true);
+
+            TFDaoDien.setVisible(false);
+            TFDienVien.setVisible(false);
+            TFNamSanXuatDP.setVisible(false);
+            TFTheLoaiDP.setVisible(false);
+        }
+        else if (RBtnDiaPhim.isSelected()) {
+            TFTenTacGia.setVisible(false);
+            TFNhaXuatBan.setVisible(false);
+            TFTheLoaiSach.setVisible(false);
+            TFNamPhatHanhSach.setVisible(false);
+
+            TFTenCaSi.setVisible(false);
+            TFTheLoaiDN.setVisible(false);
+            TFNamPhatHanhDN.setVisible(false);
+
+            TFDaoDien.setVisible(true);
+            TFDienVien.setVisible(true);
+            TFNamSanXuatDP.setVisible(true);
+            TFTheLoaiDP.setVisible(true);
+        }
+    }
     private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
         // TODO add your handling code here:
         JFrame MainViews = new MainViews();
@@ -553,6 +730,286 @@ public class KhoHangViews extends javax.swing.JFrame {
         showResult();
     }//GEN-LAST:event_BtnFullActionPerformed
 
+    private void BtntimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtntimActionPerformed
+        // TODO add your handling code here:
+        SanPham sp = null;
+        for (int i = 0; i < listSanPham.size(); i++) {
+            if (listSanPham.get(i).getTensanpham().equals(TFTen.getText())) {
+                sp = listSanPham.get(i);
+                break;
+            }
+        }
+        if (sp == null){
+            JFrame frame = new JFrame("");
+            JOptionPane.showMessageDialog(frame,
+                    "Không có sản phẩm",
+                    "",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        model.setRowCount(0);
+        model.addRow(new Object[]{
+                sp.getTensanpham(), sp.getGianhap(), sp.getGiaban(), sp.getSoluong(), sp.getTheloai()
+            });
+    }//GEN-LAST:event_BtntimActionPerformed
+
+    private void TFTenTacGiaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTenTacGiaMouseEntered
+        // TODO add your handling code here:
+        TFTenTacGia.setText("");
+    }//GEN-LAST:event_TFTenTacGiaMouseEntered
+
+    private void TFTenTacGiaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTenTacGiaMouseExited
+        // TODO add your handling code here:
+        if (TFTenTacGia.getText().equals("")){
+            TFTenTacGia.setText("Tác Giả");
+        }
+    }//GEN-LAST:event_TFTenTacGiaMouseExited
+
+    private void TFNhaXuatBanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNhaXuatBanMouseEntered
+        // TODO add your handling code here:
+        TFNhaXuatBan.setText("");
+    }//GEN-LAST:event_TFNhaXuatBanMouseEntered
+
+    private void TFNhaXuatBanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNhaXuatBanMouseExited
+        // TODO add your handling code here:
+        if (TFNhaXuatBan.getText().equals("")){
+            TFNhaXuatBan.setText("Nhà Xuất Bản");
+        }
+    }//GEN-LAST:event_TFNhaXuatBanMouseExited
+
+    private void TFTheLoaiSachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiSachMouseEntered
+        // TODO add your handling code here:
+        TFTheLoaiSach.setText("");
+    }//GEN-LAST:event_TFTheLoaiSachMouseEntered
+
+    private void TFTheLoaiSachMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiSachMouseExited
+        // TODO add your handling code here:
+        if (TFTheLoaiSach.getText().equals("")){
+            TFTheLoaiSach.setText("Thể Loại");
+        }
+    }//GEN-LAST:event_TFTheLoaiSachMouseExited
+
+    private void TFNamPhatHanhSachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamPhatHanhSachMouseEntered
+        // TODO add your handling code here:
+        TFNamPhatHanhSach.setText("");
+    }//GEN-LAST:event_TFNamPhatHanhSachMouseEntered
+
+    private void TFNamPhatHanhSachMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamPhatHanhSachMouseExited
+        // TODO add your handling code here:
+        if (TFNamPhatHanhSach.getText().equals("")){
+            TFNamPhatHanhSach.setText("Năm Phát Hành");
+        }
+    }//GEN-LAST:event_TFNamPhatHanhSachMouseExited
+
+    private void TFTenCaSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTenCaSiMouseEntered
+        // TODO add your handling code here:
+        TFTenCaSi.setText("");
+    }//GEN-LAST:event_TFTenCaSiMouseEntered
+
+    private void TFTenCaSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTenCaSiMouseExited
+        // TODO add your handling code here:
+        if (TFTenCaSi.getText().equals("")){
+            TFTenCaSi.setText("Ca Sĩ");
+        }
+    }//GEN-LAST:event_TFTenCaSiMouseExited
+
+    private void TFTheLoaiDNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiDNMouseEntered
+        // TODO add your handling code here:
+        TFTheLoaiDN.setText("");
+        
+    }//GEN-LAST:event_TFTheLoaiDNMouseEntered
+
+    private void TFTheLoaiDNMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiDNMouseExited
+        // TODO add your handling code here:
+        if (TFTheLoaiDN.getText().equals("")){
+            TFTheLoaiDN.setText("Thể Loại");
+        }
+    }//GEN-LAST:event_TFTheLoaiDNMouseExited
+
+    private void TFNamPhatHanhDNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamPhatHanhDNMouseEntered
+        // TODO add your handling code here:
+        TFNamPhatHanhDN.setText("");
+    }//GEN-LAST:event_TFNamPhatHanhDNMouseEntered
+
+    private void TFNamPhatHanhDNMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamPhatHanhDNMouseExited
+        // TODO add your handling code here:
+        if (TFNamPhatHanhDN.getText().equals("")){
+            TFNamPhatHanhDN.setText("Năm Phát Hành");
+        }
+    }//GEN-LAST:event_TFNamPhatHanhDNMouseExited
+
+    private void TFDaoDienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFDaoDienMouseEntered
+        // TODO add your handling code here:
+         TFDaoDien.setText("");
+    }//GEN-LAST:event_TFDaoDienMouseEntered
+
+    private void TFDaoDienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFDaoDienMouseExited
+        // TODO add your handling code here:
+        if (TFDaoDien.getText().equals("")){
+            TFDaoDien.setText("Đạo Diễn");
+        }
+    }//GEN-LAST:event_TFDaoDienMouseExited
+
+    private void TFDienVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFDienVienMouseEntered
+        // TODO add your handling code here:
+        TFDienVien.setText("");
+    }//GEN-LAST:event_TFDienVienMouseEntered
+
+    private void TFDienVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFDienVienMouseExited
+        // TODO add your handling code here:
+        if (TFDienVien.getText().equals("")){
+            TFDienVien.setText("Diễn viên");
+        }
+    }//GEN-LAST:event_TFDienVienMouseExited
+
+    private void TFTheLoaiDPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiDPMouseEntered
+        // TODO add your handling code here:
+         TFTheLoaiDP.setText("");
+    }//GEN-LAST:event_TFTheLoaiDPMouseEntered
+
+    private void TFTheLoaiDPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiDPMouseExited
+        // TODO add your handling code here:
+        if (TFTheLoaiDP.getText().equals("")){
+            TFTheLoaiDP.setText("Thể Loại");
+        }
+    }//GEN-LAST:event_TFTheLoaiDPMouseExited
+
+    private void TFNamSanXuatDPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamSanXuatDPMouseEntered
+        // TODO add your handling code here:
+        TFNamSanXuatDP.setText("");
+    }//GEN-LAST:event_TFNamSanXuatDPMouseEntered
+
+    private void TFNamSanXuatDPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamSanXuatDPMouseExited
+        // TODO add your handling code here:
+        if (TFNamSanXuatDP.getText().equals("")){
+            TFNamSanXuatDP.setText("Năm Sản Xuất");
+        }
+    }//GEN-LAST:event_TFNamSanXuatDPMouseExited
+
+    private void BtntimMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtntimMouseEntered
+        // TODO add your handling code here:
+        TFTen.setVisible(true);
+        TFGiaNhap.setVisible(false);
+        TFGiaBan.setVisible(false);
+        TFSoLuongNhap.setVisible(false);
+        TFTenTacGia.setVisible(false);
+        TFNhaXuatBan.setVisible(false);
+        TFTheLoaiSach.setVisible(false);
+        TFNamPhatHanhSach.setVisible(false);
+
+        TFTenCaSi.setVisible(false);
+        TFTheLoaiDN.setVisible(false);
+        TFNamPhatHanhDN.setVisible(false);
+
+        TFDaoDien.setVisible(false);
+        TFDienVien.setVisible(false);
+        TFNamSanXuatDP.setVisible(false);
+        TFTheLoaiDP.setVisible(false);
+        
+        
+        RBtnDiaNhac.setVisible(false);
+        RBtnDiaPhim.setVisible(false);
+        RBtnSach.setVisible(false);
+    }//GEN-LAST:event_BtntimMouseEntered
+
+    private void BtntimMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtntimMouseExited
+        // TODO add your handling code here:
+        TFTen.setVisible(true);
+        TFGiaNhap.setVisible(true);
+        TFGiaBan.setVisible(true);
+        TFSoLuongNhap.setVisible(true);
+        TFTenTacGia.setVisible(true);
+        TFNhaXuatBan.setVisible(true);
+        TFTheLoaiSach.setVisible(true);
+        TFNamPhatHanhSach.setVisible(true);
+
+        TFTenCaSi.setVisible(true);
+        TFTheLoaiDN.setVisible(true);
+        TFNamPhatHanhDN.setVisible(true);
+
+        TFDaoDien.setVisible(true);
+        TFDienVien.setVisible(true);
+        TFNamSanXuatDP.setVisible(true);
+        TFTheLoaiDP.setVisible(true);
+        
+        setstatusBTNGR();
+    }//GEN-LAST:event_BtntimMouseExited
+
+    private void BtntimtheoloaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtntimtheoloaiActionPerformed
+        // TODO add your handling code here:
+        String theloai ;
+        if (RBtnSach.isSelected()){
+            theloai = "sach";
+        }
+        else if (RBtnDiaNhac.isSelected()){
+            theloai = "dianhac";
+        }
+        else 
+            theloai = "diaphim";
+//        System.out.print(theloai);
+//        System.out.print(listSanPham.size());
+        ArrayList<SanPham> listcantim = khohang.TimTheLoai(theloai, listSanPham);
+//        System.out.print(listcantim.size());
+        if (listcantim != null){
+            model.setRowCount(0);
+            for (int i = 0; i < listcantim.size(); i++) {
+                SanPham sp = listcantim.get(i);
+                model.addRow(new Object[]{
+                    sp.getTensanpham(), sp.getGianhap(), sp.getGiaban(), sp.getSoluong(), sp.getTheloai()
+                });
+            }
+        }           
+    }//GEN-LAST:event_BtntimtheoloaiActionPerformed
+
+    private void BtntimtheoloaiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtntimtheoloaiMouseEntered
+        // TODO add your handling code here:
+        TFTen.setVisible(false);
+        TFGiaNhap.setVisible(false);
+        TFGiaBan.setVisible(false);
+        TFSoLuongNhap.setVisible(false);
+        TFTenTacGia.setVisible(false);
+        TFNhaXuatBan.setVisible(false);
+        TFTheLoaiSach.setVisible(false);
+        TFNamPhatHanhSach.setVisible(false);
+
+        TFTenCaSi.setVisible(false);
+        TFTheLoaiDN.setVisible(false);
+        TFNamPhatHanhDN.setVisible(false);
+
+        TFDaoDien.setVisible(false);
+        TFDienVien.setVisible(false);
+        TFNamSanXuatDP.setVisible(false);
+        TFTheLoaiDP.setVisible(false);
+        
+        
+        RBtnDiaNhac.setVisible(true);
+        RBtnDiaPhim.setVisible(true);
+        RBtnSach.setVisible(true);
+    }//GEN-LAST:event_BtntimtheoloaiMouseEntered
+
+    private void BtntimtheoloaiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtntimtheoloaiMouseExited
+        // TODO add your handling code here:
+        TFTen.setVisible(true);
+        TFGiaNhap.setVisible(true);
+        TFGiaBan.setVisible(true);
+        TFSoLuongNhap.setVisible(true);
+        TFTenTacGia.setVisible(true);
+        TFNhaXuatBan.setVisible(true);
+        TFTheLoaiSach.setVisible(true);
+        TFNamPhatHanhSach.setVisible(true);
+
+        TFTenCaSi.setVisible(true);
+        TFTheLoaiDN.setVisible(true);
+        TFNamPhatHanhDN.setVisible(true);
+
+        TFDaoDien.setVisible(true);
+        TFDienVien.setVisible(true);
+        TFNamSanXuatDP.setVisible(true);
+        TFTheLoaiDP.setVisible(true);
+        
+        setstatusBTNGR();
+        
+    }//GEN-LAST:event_BtntimtheoloaiMouseExited
+
     private void showResult() {
         model.setRowCount(0);
         for (int i = 0; i < listSanPham.size(); i++) {
@@ -570,6 +1027,8 @@ public class KhoHangViews extends javax.swing.JFrame {
     private javax.swing.JButton BtnFull;
     private javax.swing.ButtonGroup BtnGrLoai;
     private javax.swing.JButton BtnInsert;
+    private javax.swing.JButton Btntim;
+    private javax.swing.JButton Btntimtheoloai;
     private javax.swing.JLabel LabelGiaBan;
     private javax.swing.JLabel LabelGiaNhap;
     private javax.swing.JLabel LabelSoLuongNhap1;

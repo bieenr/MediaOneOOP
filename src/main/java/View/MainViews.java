@@ -84,11 +84,7 @@ public class MainViews extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp pavilion\\Documents\\LEARNJAVA\\MediaOneOOP\\src\\main\\ICON\\Icon\\Bell-icon.png")); // NOI18N
         jButton1.setToolTipText("");
-        jButton1.setMaximumSize(new java.awt.Dimension(70, 70));
-        jButton1.setMinimumSize(new java.awt.Dimension(70, 70));
-        jButton1.setPreferredSize(new java.awt.Dimension(70, 70));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
