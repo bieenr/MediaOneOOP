@@ -39,7 +39,7 @@ public class NhanVienDuc extends javax.swing.JFrame {
 //        list_NhanVien = new ArrayList<>();
         model = (DefaultTableModel) jTable1.getModel();
         list_NhanVien = io.docNV();
-//        System.out.println(list_NhanVien.size());
+        System.out.println(list_NhanVien.size());
         showResultCPNV();
     }
 

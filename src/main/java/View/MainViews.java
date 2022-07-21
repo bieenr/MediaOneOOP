@@ -68,7 +68,7 @@ public class MainViews extends javax.swing.JFrame {
 
         BtnNhanVien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BtnNhanVien.setForeground(new java.awt.Color(153, 153, 0));
-        BtnNhanVien.setText("QUAN LY NHAN VIEN");
+        BtnNhanVien.setText("QUẢN LÝ NHÂN VIÊN");
         BtnNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnNhanVienActionPerformed(evt);
@@ -77,7 +77,7 @@ public class MainViews extends javax.swing.JFrame {
 
         BtnChiPhi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BtnChiPhi.setForeground(new java.awt.Color(153, 153, 0));
-        BtnChiPhi.setText("QUAN LY CHI PHI");
+        BtnChiPhi.setText("QUẢN LÝ CHI PHÍ");
         BtnChiPhi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnChiPhiActionPerformed(evt);

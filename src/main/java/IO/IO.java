@@ -200,7 +200,7 @@ public class IO {
 
     }
 
-    public void ghiNV(ArrayList<NhanVien> list) {
+public void ghiNV(ArrayList<NhanVien> list) {
         try ( PrintWriter pw = new PrintWriter(new File("src\\main\\java\\IO\\NV.DAT"))) {
             for (NhanVien nv : list) {
                 if (nv instanceof NhanVienCoDinh) {
@@ -222,19 +222,20 @@ public class IO {
         }
     }
 
+
     public ArrayList<NhanVien> docNV() {
         ArrayList<NhanVien> list = new ArrayList<>();
         try ( Scanner sc = new Scanner(new File("src\\main\\java\\IO\\NV.DAT"))) {
             while (sc.hasNext()) {
-                int number = Integer.parseInt(sc.nextLine());
-                if (number == 0) {
+                String number =sc.nextLine();
+                if (number.equals("Full-time")) {
                     NhanVienCoDinh nv = new NhanVienCoDinh();
                     nv.setTenNhanVien(sc.nextLine());
                     nv.setViTri(sc.nextLine());
                     nv.setLuongCoBan(Double.parseDouble(sc.nextLine()));
                     nv.setHeSoLuong(Double.parseDouble(sc.nextLine()));
                     list.add(nv);
-                } else if (number == 1) {
+                } else if (number.equals("Part-time")) {
                     NVPartTime nv = new NVPartTime();
                     nv.setTenNhanVien(sc.nextLine());
                     nv.setThoiGianLamViec(Double.parseDouble(sc.nextLine()));
