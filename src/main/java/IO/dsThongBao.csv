@@ -1,4 +1,17 @@
-T,false
-Tiền nước,false
-abc,true
-abc,true
+Tiền nước,TRUE
+Tiền điện,FALSE
+Tiền điều hòa,TRUE
+Tiền lương nhân viên,FALSE
+Sách mới nhập,TRUE
+Tiền bảo trì,FALSE
+Tiền điều hòa,FALSE
+Tiền bảo trì,FALSE
+Tiền lương nhân viên,FALSE
+Tiền lương nhân viên,FALSE
+Tiền điều hòa,FALSE
+Khách hàng thanh toán,TRUE
+Khách hàng thanh toán,TRUE
+Sách mới nhập,TRUE
+Tiền điều hòa,FALSE
+Tiền lương nhân viên,TRUE
+Tiền lương nhân viên,TRUE
