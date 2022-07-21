@@ -4,7 +4,7 @@
  */
 package View;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  *
@@ -84,6 +84,7 @@ public class MainViews extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Bell-icon.jpg"))); // NOI18N
         jButton1.setToolTipText("");
         jButton1.setMaximumSize(new java.awt.Dimension(70, 70));
         jButton1.setMinimumSize(new java.awt.Dimension(70, 70));
