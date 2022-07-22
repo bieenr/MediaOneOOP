@@ -4,7 +4,7 @@
  */
 package View;
 
-import DoanhThu.QuanLySuKien;
+import DoanhThu.QuanLySuKienDinhKy;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -17,11 +17,11 @@ public class XoaSKDKView extends javax.swing.JFrame {
     /**
      * Creates new form XoaSKDKView
      */
-    QuanLySuKien qlsk;
+    QuanLySuKienDinhKy qlskdk;
 
     public XoaSKDKView() {
         initComponents();
-        qlsk = new QuanLySuKien();
+        qlskdk = new QuanLySuKienDinhKy();
     }
 
     /**
@@ -121,7 +121,7 @@ public class XoaSKDKView extends javax.swing.JFrame {
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
         try {
-            qlsk.xoaSKDK(tenSK.getText());
+            qlskdk.xoaSKDK(tenSK.getText());
         } catch (Exception e) {
             System.out.println(e.getClass());
             JFrame frame = new JFrame("");

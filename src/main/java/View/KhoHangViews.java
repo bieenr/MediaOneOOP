@@ -766,7 +766,9 @@ public class KhoHangViews extends javax.swing.JFrame {
 
     private void TFNhaXuatBanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNhaXuatBanMouseEntered
         // TODO add your handling code here:
-        TFNhaXuatBan.setText("");
+        if (TFNhaXuatBan.getText().equals("Nhà xuất bản")){
+            TFNhaXuatBan.setText("");
+        }
     }//GEN-LAST:event_TFNhaXuatBanMouseEntered
 
     private void TFNhaXuatBanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNhaXuatBanMouseExited
@@ -778,7 +780,9 @@ public class KhoHangViews extends javax.swing.JFrame {
 
     private void TFTheLoaiSachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiSachMouseEntered
         // TODO add your handling code here:
-        TFTheLoaiSach.setText("");
+        if (TFTheLoaiSach.getText().equals("Thể Loại")){
+            TFTheLoaiSach.setText("");
+        }
     }//GEN-LAST:event_TFTheLoaiSachMouseEntered
 
     private void TFTheLoaiSachMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFTheLoaiSachMouseExited
@@ -790,7 +794,9 @@ public class KhoHangViews extends javax.swing.JFrame {
 
     private void TFNamPhatHanhSachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamPhatHanhSachMouseEntered
         // TODO add your handling code here:
-        TFNamPhatHanhSach.setText("");
+        if (TFNamPhatHanhSach.getText().equals("Năm Phát Hành")){
+            TFNamPhatHanhSach.setText("");
+        }
     }//GEN-LAST:event_TFNamPhatHanhSachMouseEntered
 
     private void TFNamPhatHanhSachMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNamPhatHanhSachMouseExited

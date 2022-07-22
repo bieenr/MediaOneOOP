@@ -4,7 +4,7 @@
  */
 package View;
 
-import DoanhThu.QuanLySuKien;
+import DoanhThu.QuanLySuKienDinhKy;
 import DoanhThu.SuKienDinhKy;
 import DoanhThu.SuKienHangThang;
 import DoanhThu.SuKienMotLan;
@@ -23,20 +23,20 @@ public class SKDKView extends javax.swing.JFrame {
     /**
      * Creates new form SKDKView
      */
-    QuanLySuKien qlsk;
+    QuanLySuKienDinhKy qlskdk;
 
     public SKDKView() {
         initComponents();
         this.setLocationRelativeTo(null);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
-        qlsk = new QuanLySuKien();
+        qlskdk = new QuanLySuKienDinhKy();
 //        System.out.println("1");
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
 //        System.out.println("1");
-        for (int i = 0; i < qlsk.getDanhSachSuKienDinhKy().size(); i++) {
-            SuKienDinhKy sk = qlsk.getDanhSachSuKienDinhKy().get(i);
+        for (int i = 0; i < qlskdk.getDanhSachSuKienDinhKy().size(); i++) {
+            SuKienDinhKy sk = qlskdk.getDanhSachSuKienDinhKy().get(i);
 //            System.out.println("1");
             if (sk instanceof SuKienHangThang) {
                 System.out.println("1");
